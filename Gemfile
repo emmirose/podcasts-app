@@ -28,9 +28,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "rack-cors"
 gem "active_model_serializers"
-gem "rspotify"
-gem "rest-client"
 gem "dotenv-rails", groups: [:development, :test]
+gem 'rspotify'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

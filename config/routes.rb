@@ -3,6 +3,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: "spotify#home"
-  resources :podcasts, only :index
+  root to: "podcast#index"
 end
