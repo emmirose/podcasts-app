@@ -28,7 +28,7 @@ https.use_ssl = true
 
 request = Net::HTTP::Get.new(url)
 request["Accept"] = "application/json"
-request["Authorization"] = "Bearer BQCuFfoB4XV2-TVFxSYGS4kL6szI-Z9fDQM_-Tgk0BtWtQEJ1wseGk2Zwgt2mbivoGd2u3BBlyv0yXOWgvmuXiXdhgpR0zhQ9VvaLvTa9Lr_ZNxEqO6S"
+request["Authorization"] = ENV['TOKEN']
 
 response = https.request(request).read_body
 hash = JSON.parse response
