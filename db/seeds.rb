@@ -1,7 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+
+# install gem dotenv-rails
+# add .env file to root directory
+# create a varible with keys
+# call it where I calll the API
+# BASE_URL = 'https://api.spotify.com/v1/'
+
+#REST CLIENT GEM
+
+# auth = {'Authorization':
+# 'Bearer BQCpdRKjjVrbbNx2rb9sxc_O2sorCjCrAWvAkNPeJ93T9NJpxgM--kZtzVNcTcbYdIKKXrz7
+# -LaQ3cTwX6wTRM0-WoixTcHL_ivGTZfOTFqsx5VnGX3p'}
+
+# response = RestClient.get('https://api.spotify.com/v1/shows/6FmhbANzGT7BC4ltVPIbt5',
+# headers: auth)
+
+# byebug
+
+# NET HTTP GEM
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://api.spotify.com/v1/shows/6FmhbANzGT7BC4ltVPIbt5?market=FR")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer BQCuFfoB4XV2-TVFxSYGS4kL6szI-Z9fDQM_-Tgk0BtWtQEJ1wseGk2Zwgt2mbivoGd2u3BBlyv0yXOWgvmuXiXdhgpR0zhQ9VvaLvTa9Lr_ZNxEqO6S"
+
+response = https.request(request).read_body
+hash = JSON.parse response
+print hash["description"]
+byebug

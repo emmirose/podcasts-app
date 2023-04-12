@@ -30,7 +30,11 @@ gem "rack-cors"
 gem "active_model_serializers"
 gem "dotenv-rails", groups: [:development, :test]
 gem 'rspotify'
-
+gem 'byebug'
+gem 'rest-client'
+gem 'json'
+gem 'net-http'
+gem 'http'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
