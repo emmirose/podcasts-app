@@ -1,9 +1,15 @@
-
-<% @podcasts.each do |podcast| %>
-<ul>
-<li> <%=podcast.title%></li>
-<li> <%=podcast.publisher%></li>
-<li> <%=podcast.number_of_episodes%></li>
-<li> <%=podcast.description%></li>
-</ol>
-<% end %>
+<div class="container">
+  <div class="podcasts">
+    <% @podcasts.each do |podcast| %>
+      <ul>
+        <div class="podcast">
+            <li><%= image_tag podcast.image, :class => "podcast_img" %> </li>
+          <li class="title"> <%=podcast.title%></li>
+          <li class="small"> <%=podcast.publisher%></li>
+          <li class="small"> Nombre d'épisodes: <%=podcast.number_of_episodes%></li>
+          <li class="medium"> <%=podcast.description%></li>
+        </div>
+      </ul>
+    <% end %>
+  </div>
+</div>

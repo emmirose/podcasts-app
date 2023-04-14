@@ -1,0 +1,37 @@
+.container {
+  background-color: rgb(102, 5, 5);
+}
+
+.podcasts {
+  background-color: #660505;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.podcast {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  list-style: none;
+  font-family: 'Anuphan', sans-serif;
+  max-width: 350px;
+}
+
+.podcast_img{
+  width: 100%;
+}
+
+.podcast .title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.podcast .small {
+  font-size: 0.8em
+}
+
+.podcast .medium {
+  font-size: 0.9em
+}

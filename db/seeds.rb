@@ -26,13 +26,17 @@
 # hash = JSON.parse response
 # print hash["description"]
 
-response = RestClient.get('https://api.spotify.com/v1/search?query=economie&type=show&include_external=audio&market=FR&locale=fr-FR%2Cfr%3Bq%3D0.9%2Cen-US%3Bq%3D0.8%2Cen%3Bq%3D0.7&offset=0&limit=20',
+puts "Cleaning database..."
+Podcast.destroy_all
+
+response = RestClient.get('https://api.spotify.com/v1/search?query=f%C3%A9minisme&type=show&include_external=audio&market=FR&locale=fr-FR%2Cfr%3Bq%3D0.9%2Cen-US%3Bq%3D0.8%2Cen%3Bq%3D0.7&offset=0&limit=20',
 {:Authorization => "Bearer #{ENV['TOKEN']}"} )
 result = JSON.parse(response)
 
 podcasts = result["shows"]["items"]
 
+puts "Found #{podcasts.size} podcasts"
 podcasts.each do |podcast|
   Podcast.create(:title => podcast["name"], :number_of_episodes => podcast["total_episodes"],
-  :description => podcast["description"], :publisher => podcast["publisher"])
+  :description => podcast["description"], :publisher => podcast["publisher"], :image => podcast["images"][0]["url"])
 end
