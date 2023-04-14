@@ -1,17 +1,9 @@
-<h1> Playlists </h1>
-<%= form_tag root_path, :method => "get" %>
-  <%= label_tag(:search, "Que voulez-vous écouter?") %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag("Rechercher") %>
 
-  <% if @userquery %>
-  <% return %>
-    <h2> <%= @playlist.name %> </h2>
-      <ul>
-        <% @tracks.each do |track| %>
-          <li> <%= track.name %> Ecouter ici : <%= track.href %></li>
-        <% end %>
-      </ul>
-  <% else %>
-  <h2> A vous de jouer ! </h2>
-  <% end %>
+<% @podcasts.each do |podcast| %>
+<ul>
+<li> <%=podcast.title%></li>
+<li> <%=podcast.publisher%></li>
+<li> <%=podcast.number_of_episodes%></li>
+<li> <%=podcast.description%></li>
+</ol>
+<% end %>

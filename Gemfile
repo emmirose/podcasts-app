@@ -35,6 +35,7 @@ gem 'rest-client'
 gem 'json'
 gem 'net-http'
 gem 'http'
+gem 'pry'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
